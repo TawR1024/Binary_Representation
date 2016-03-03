@@ -16,21 +16,8 @@ void PrintNum(void *num, short int TypeSize)
 
 
 void BinaryShift() {
-	unsigned short int bitPosition, bitState, bitNumber;
-	/*std::cin >> bitPosition;
-	std::cin >> bitState;
-	std::cin >> bitNumber;*/
-	bool arr[16];
-	for (int i = 2; i < 6; i++) {
-		arr[i] = 1;
-	}
-	int tmp = 1;
-	for (int i = 0; i < 16; ++i) {
-		arr[i] = tmp & (1 << i);
-	}
-	for (int i = 15; i >=0; i--)
-		std::cout << ((tmp >> i)&1);
-
+	int tmp = 0;
+	tmp = tmp & ((1 << 3));
 	system("PAUSE");
 	
 
@@ -41,12 +28,22 @@ void BinaryShift() {
 int main()
 {
 	setlocale(0, "");
-	BinaryShift();
+	int tmp=0;
+	unsigned short int startBit=4;
+	unsigned short int numberOfBits=5;
+	unsigned short int bitState;
+	unsigned short int mask;
+	for (int i = startBit; i < numberOfBits+startBit -1; i++) {
+		tmp = tmp |(1 << i);
+	}
+	PrintNum(&tmp, sizeof(int));
+	system("PAUSE");
+	/*BinaryShift();
 	int menu, exit_ = 0;
 	
 	_asm { 
 		mov		ax,ax
-	}
+	}*/
 
 	/*do {
 		system("cls");
