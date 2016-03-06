@@ -14,32 +14,39 @@ void PrintNum(void *num, short int TypeSize)
 	}
 }
 
+int  BinaryShift(unsigned short int startBit, int unsigned numberOfBits, unsigned short int bitState, int number ) {
+	int mask = 0;
+	for (int i = startBit; i < numberOfBits + startBit - 1; i++) {
+		if (bitState == 1) {
+			number |= (1 << i); // устанавоивает 1
+		}
+		else {
+			for (int i = startBit; i < numberOfBits + startBit - 1; i++) {
+				number &= ~(1 << i);// устанавливает 0
+			}
+		}
+	}
+	return number;
+	}
 
-void BinaryShift() {
-	int tmp = 0;
-	tmp = tmp & ((1 << 3));
-	system("PAUSE");
-	
 
-
-}
 
 
 int main()
 {
 	setlocale(0, "");
-	int tmp=0;
-	unsigned short int startBit=4;
-	unsigned short int numberOfBits=5;
-	unsigned short int bitState;
-	unsigned short int mask;
-	for (int i = startBit; i < numberOfBits+startBit -1; i++) {
-		tmp = tmp |(1 << i);
-	}
-	PrintNum(&tmp, sizeof(int));
+	/*int start=1, number=11, tmp= 1048575,state=0;
+	std::cin >> start;
+	std::cin >> number;
+	std::cin >> tmp;
+	std::cin >> state;*/
+	char tmp = 'c';
+	PrintNum(&tmp, sizeof(char));
+	//tmp = BinaryShift(start, number, state,tmp);
+	//std::cout << "\n";
+	//PrintNum(&tmp, sizeof(int));
 	system("PAUSE");
-	/*BinaryShift();
-	int menu, exit_ = 0;
+	/*int menu, exit_ = 0;
 	
 	_asm { 
 		mov		ax,ax
