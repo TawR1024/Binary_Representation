@@ -14,43 +14,35 @@ void PrintNum(void *num, short int TypeSize)
 	}
 }
 
-int  BinaryShift(unsigned short int startBit, int unsigned numberOfBits, unsigned short int bitState, int number ) {
-	int mask = 0;
-	for (int i = startBit; i < numberOfBits + startBit - 1; i++) {
-		if (bitState == 1) {
-			number |= (1 << i); // устанавоивает 1
-		}
-		else {
-			for (int i = startBit; i < numberOfBits + startBit - 1; i++) {
-				number &= ~(1 << i);// устанавливает 0
-			}
+
+void PrintNum1(void *num, short int TypeSize, bool bitState,unsigned short int startBit, unsigned short int stopBit){
+	void *temp = 0;
+
+	if (bitState == true) {
+		for (int i = startBit; i <= stopBit; i++) {
+			((char*)(&temp))[i / 8] = (((char*)(&temp))[i / 8]) | (1 << i % 8); // генерация маски
+			((char*)(num))[i / 8] = (((char*)(num))[i / 8]) | (((char*)(&temp))[i / 8]); // устанавливает единицу
 		}
 	}
-	return number;
+	else
+	{
+		for (int i = startBit; i <= stopBit; i++) {
+			((char*)(&temp))[i / 8] = ~((((char*)(&temp))[i / 8]) | (1 << i % 8));
+			((char*)(num))[i / 8] = (((char*)(num))[i / 8]) & (((char*)(&temp))[i / 8]);
+		}
+
 	}
-
-
-
-
+	PrintNum(num,TypeSize);// конечый результат
+}
+	
 int main()
 {
 	setlocale(0, "");
-	/*int start=1, number=11, tmp= 1048575,state=0;
-	std::cin >> start;
-	std::cin >> number;
-	std::cin >> tmp;
-	std::cin >> state;*/
-	char tmp = 'c';
-	PrintNum(&tmp, sizeof(char));
-	//tmp = BinaryShift(start, number, state,tmp);
-	//std::cout << "\n";
-	//PrintNum(&tmp, sizeof(int));
+	int data = 256;
+	PrintNum(&data, sizeof(int));
+	std::cout << "\n";
+	PrintNum1(&data, sizeof(int), 0,8, 8);
 	system("PAUSE");
-	/*int menu, exit_ = 0;
-	
-	_asm { 
-		mov		ax,ax
-	}*/
 
 	/*do {
 		system("cls");
