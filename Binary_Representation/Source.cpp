@@ -1,52 +1,16 @@
-#include <iostream>
-#include <cstdlib>
+#include "Header.h"
 
-
-
-void PrintNum(void *num, short int TypeSize)
-{
-	char *p_tmp = reinterpret_cast<char*>(num);
-	for (int counter = (TypeSize * 8)-1; counter >=0; counter--)
-	{
-		std::cout << ((p_tmp[counter / 8] >> counter%8) & 1);
-		if ((counter ) % 8 == 0)
-			std::cout << " ";
-	}
-}
-
-
-void PrintNum1(void *num, short int TypeSize, bool bitState,unsigned short int startBit, unsigned short int stopBit){
-	void *temp = 0;
-
-	if (bitState == true) {
-		for (int i = startBit; i <= stopBit; i++) {
-			((char*)(&temp))[i / 8] = (((char*)(&temp))[i / 8]) | (1 << i % 8); // генерация маски
-			((char*)(num))[i / 8] = (((char*)(num))[i / 8]) | (((char*)(&temp))[i / 8]); // устанавливает единицу
-		}
-	}
-	else
-	{
-		for (int i = startBit; i <= stopBit; i++) {
-			((char*)(&temp))[i / 8] = ~((((char*)(&temp))[i / 8]) | (1 << i % 8));
-			((char*)(num))[i / 8] = (((char*)(num))[i / 8]) & (((char*)(&temp))[i / 8]);
-		}
-
-	}
-	PrintNum(num,TypeSize);// конечый результат
-}
 	
 int main()
 {
 	setlocale(0, "");
-	int data = 256;
-	PrintNum(&data, sizeof(int));
-	std::cout << "\n";
-	PrintNum1(&data, sizeof(int), 0,8, 8);
-	system("PAUSE");
-
-	/*do {
+	unsigned short int menu=0, exit_=0;
+	bool bitState;
+	unsigned short int startBit;
+	unsigned short int stopBit;
+	do {
 		system("cls");
-		std::cout << "Выбирите тип, для подтверждения выбора нажмите Enter:\n 1 - int\n2 - char\n3 - short int\n4 - long int\n5 - double\n6 - float\n7 - long long int\n0 - Завершить работы и закрыть программу\n";
+		std::cout << "Выбирите тип, для подтверждения выбора нажмите Enter:\n 1 - int\n2 - char\n3 - short int\n4 - long int\n5 - double\n6 - float\n7 - long long int\n0 - Завершить работы и закрыть программу\n12345 - вывести раздел \"О программе\"";
 		std::cin >> menu;
 		switch (menu)
 		{
@@ -56,7 +20,13 @@ int main()
 			std::cout << "Введите число:\t";
 			int i_number;
 			std::cin >> i_number;
-			PrintNum(&i_number, sizeof(int));
+			std::cout << "Выберите состояние битов 0 или 1:\t";
+			std::cin >> bitState;
+			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
+			std::cin >> startBit;
+			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
+			std::cin >> stopBit;
+			BinaryShift(&i_number, INT, bitState, startBit, stopBit);
 			break;
 		case 2:
 			system("cls");
@@ -64,8 +34,13 @@ int main()
 			char ch_smb;
 			std::cout << "Введите символ:\t";
 			std::cin >> ch_smb;
-			ch_smb = getchar();
-			PrintNum(&ch_smb, sizeof(char));
+			std::cout << "Выберите состояние битов 0 или 1:\t";
+			std::cin >> bitState;
+			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
+			std::cin >> startBit;
+			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
+			std::cin >> stopBit;
+			BinaryShift(&ch_smb, CHR, bitState, startBit, stopBit);
 			break;
 		case 3:
 			system("cls");
@@ -73,7 +48,13 @@ int main()
 			std::cout << "Введите число:\t";
 			short int shi_number;
 			std::cin >> shi_number;
-			PrintNum(&shi_number, sizeof(short int));
+			std::cout << "Выберите состояние битов 0 или 1:\t";
+			std::cin >> bitState;
+			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
+			std::cin >> startBit;
+			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
+			std::cin >> stopBit;
+			BinaryShift(&shi_number, SHRT, bitState, startBit, stopBit);;
 			break;
 		case 4:
 			system("cls");
@@ -81,7 +62,13 @@ int main()
 			std::cout << "Введите число:\t";
 			long int l_number;
 			std::cin >> l_number;
-			PrintNum(&l_number, sizeof(long int));
+			std::cout << "Выберите состояние битов 0 или 1:\t";
+			std::cin >> bitState;
+			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
+			std::cin >> startBit;
+			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
+			std::cin >> stopBit;
+			BinaryShift(&l_number, L_INT, bitState, startBit, stopBit);
 			break;
 		case 5:
 			system("cls");
@@ -91,7 +78,13 @@ int main()
 			std::cout << "Введите число:\t";
 			double d_number;
 			std::cin >> d_number;
-			PrintNum(&d_number, sizeof(double));
+			std::cout << "Выберите состояние битов 0 или 1:\t";
+			std::cin >> bitState;
+			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
+			std::cin >> startBit;
+			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
+			std::cin >> stopBit;
+			BinaryShift(&d_number, DBL, bitState, startBit, stopBit);
 			break;
 		case 6:
 			system("cls");
@@ -99,7 +92,13 @@ int main()
 			std::cout << "Введите число:\t";
 			float f_number;
 			std::cin >> f_number;
-			PrintNum(&f_number, sizeof(float));
+			std::cout << "Выберите состояние битов 0 или 1:\t";
+			std::cin >> bitState;
+			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
+			std::cin >> startBit;
+			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
+			std::cin >> stopBit;
+			BinaryShift(&f_number, FLT, bitState, startBit, stopBit);
 			break;
 		case 7:
 			system("cls");
@@ -107,7 +106,16 @@ int main()
 			std::cout << "Введите число:\t";
 			long long int l_l_number;
 			std::cin >> l_l_number;
-			PrintNum(&l_l_number, sizeof(long long int));
+			std::cout << "Выберите состояние битов 0 или 1:\t";
+			std::cin >> bitState;
+			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
+			std::cin >> startBit;
+			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
+			std::cin >> stopBit;
+			BinaryShift(&l_l_number, LL_INT, bitState, startBit, stopBit);
+			break;
+		case 12345:
+			about();
 			break;
 		case 0:
 			exit_ = 1;
@@ -115,6 +123,6 @@ int main()
 		std::cout << "\n";
 		system("pause");
 	} while (exit_ != 1);
-	exit(0);*/
+	exit(0);
 	return 0;
 }
