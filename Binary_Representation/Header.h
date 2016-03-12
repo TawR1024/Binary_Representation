@@ -33,6 +33,7 @@ enum ConsoleColor {
 	WHITE = 15
 };
 
+
 void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsigned short int stopBit);
 void BinaryShift(void *num, short int TypeSize, bool bitState, unsigned short int startBit, unsigned short int stopBit);
 void about();

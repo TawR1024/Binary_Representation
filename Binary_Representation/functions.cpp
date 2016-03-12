@@ -1,6 +1,7 @@
 #pragma once
 #include "Header.h"
 
+
 void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsigned short int stopBit)
 {
 	char *p_tmp = reinterpret_cast<char*>(num);
