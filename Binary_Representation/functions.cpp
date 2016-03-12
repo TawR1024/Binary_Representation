@@ -13,14 +13,14 @@ void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsign
 		else
 		{
 			HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-			SetConsoleTextAttribute(handle, WHITE);
+			SetConsoleTextAttribute(handle, LIGHTGRAY);
 		}
 		std::cout << ((p_tmp[counter / 8] >> counter % 8) & 1);
 		if ((counter) % 8 == 0)
 			std::cout << " ";
 	}
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(handle, WHITE);
+	SetConsoleTextAttribute(handle, LIGHTGRAY);
 }
 
 void BinaryShift(void *num, short int TypeSize, bool bitState, unsigned short int startBit, unsigned short int stopBit) {

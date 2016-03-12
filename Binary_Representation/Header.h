@@ -4,6 +4,9 @@
 #include <Windows.h>
 #include <ctype.h>
 
+
+#define CIN_ALPHA_ERR  "Введена буква или группа букв. Повторите ввод."
+
 #define INT sizeof(int)
 #define L_INT sizeof(long int)
 #define LL_INT sizeof(long long int)

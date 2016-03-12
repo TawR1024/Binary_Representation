@@ -16,10 +16,17 @@ int main()
 		std::cout << "Выбирите тип, для подтверждения выбора нажмите Enter:\n* 1 - int\n* 2 - char\n* 3 - short int\n* 4 - long int\n* 5 - double\n* 6 - float\n* 7 - long long int\n* 0 - Завершить работы и закрыть программу\n* # - вывести раздел \"О программе\"\n";
 		std::cout << "Ваш Выбор:\t";
 		std::cin >> menu;
-		if (isalpha(menu) != 0) {
-			std::cout << "децл ты зачем буквы ввёл ?";
-			system("PAUSE");
+		try {
+			if (isalpha(menu) != 0) {
+				std::cin.clear();
+				std::cin.ignore(std::cin.rdbuf()->in_avail());
+				throw CIN_ALPHA_ERR;
+			}
 		}
+		catch (char *str) {
+			std::cout << str;
+		}
+
 		switch (menu)
 		{
 		case '1':
