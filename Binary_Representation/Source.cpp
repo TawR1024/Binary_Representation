@@ -4,17 +4,25 @@
 int main()
 {
 	setlocale(0, "");
-	unsigned short int menu=0, exit_=0;
+
+
+	char menu=' ', exit_=' ';
 	bool bitState;
 	unsigned short int startBit;
 	unsigned short int stopBit;
 	do {
+		std::cin.clear();
 		system("cls");
-		std::cout << "Выбирите тип, для подтверждения выбора нажмите Enter:\n 1 - int\n2 - char\n3 - short int\n4 - long int\n5 - double\n6 - float\n7 - long long int\n0 - Завершить работы и закрыть программу\n12345 - вывести раздел \"О программе\"";
+		std::cout << "Выбирите тип, для подтверждения выбора нажмите Enter:\n* 1 - int\n* 2 - char\n* 3 - short int\n* 4 - long int\n* 5 - double\n* 6 - float\n* 7 - long long int\n* 0 - Завершить работы и закрыть программу\n* # - вывести раздел \"О программе\"\n";
+		std::cout << "Ваш Выбор:\t";
 		std::cin >> menu;
+		if (isalpha(menu) != 0) {
+			std::cout << "децл ты зачем буквы ввёл ?";
+			system("PAUSE");
+		}
 		switch (menu)
 		{
-		case 1:
+		case '1':
 			system("cls");
 			std::cout << "Выбран тип int\n";
 			std::cout << "Введите число:\t";
@@ -22,13 +30,13 @@ int main()
 			std::cin >> i_number;
 			std::cout << "Выберите состояние битов 0 или 1:\t";
 			std::cin >> bitState;
-			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
+			std::cout << "Укажите номер начального бита. Нумерация начинается с 0: ";
 			std::cin >> startBit;
-			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
+			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:  ";
 			std::cin >> stopBit;
 			BinaryShift(&i_number, INT, bitState, startBit, stopBit);
 			break;
-		case 2:
+		case '2':
 			system("cls");
 			std::cout << "Выбран тип char\n";
 			char ch_smb;
@@ -42,7 +50,7 @@ int main()
 			std::cin >> stopBit;
 			BinaryShift(&ch_smb, CHR, bitState, startBit, stopBit);
 			break;
-		case 3:
+		case '3':
 			system("cls");
 			std::cout << "Выбран тип short int\n";
 			std::cout << "Введите число:\t";
@@ -56,7 +64,7 @@ int main()
 			std::cin >> stopBit;
 			BinaryShift(&shi_number, SHRT, bitState, startBit, stopBit);;
 			break;
-		case 4:
+		case '4':
 			system("cls");
 			std::cout << "Выбран тип long int\n";
 			std::cout << "Введите число:\t";
@@ -70,11 +78,9 @@ int main()
 			std::cin >> stopBit;
 			BinaryShift(&l_number, L_INT, bitState, startBit, stopBit);
 			break;
-		case 5:
+		case '5':
 			system("cls");
 			std::cout << "Выбран тип double\n";
-			system("cls");
-			std::cout << "Выбран тип int";
 			std::cout << "Введите число:\t";
 			double d_number;
 			std::cin >> d_number;
@@ -86,7 +92,7 @@ int main()
 			std::cin >> stopBit;
 			BinaryShift(&d_number, DBL, bitState, startBit, stopBit);
 			break;
-		case 6:
+		case '6':
 			system("cls");
 			std::cout << "Выбран тип float\n";
 			std::cout << "Введите число:\t";
@@ -100,7 +106,7 @@ int main()
 			std::cin >> stopBit;
 			BinaryShift(&f_number, FLT, bitState, startBit, stopBit);
 			break;
-		case 7:
+		case '7':
 			system("cls");
 			std::cout << "Выбран тип long long int\n";
 			std::cout << "Введите число:\t";
@@ -114,15 +120,21 @@ int main()
 			std::cin >> stopBit;
 			BinaryShift(&l_l_number, LL_INT, bitState, startBit, stopBit);
 			break;
-		case 12345:
+		case '#':
 			about();
 			break;
-		case 0:
+		case '0':
 			exit_ = 1;
+			break;
+		default:
+			std::cin.clear();
+			exit_ = 0;
+			break;
 		}
 		std::cout << "\n";
 		system("pause");
 	} while (exit_ != 1);
+
 	exit(0);
 	return 0;
 }
