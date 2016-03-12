@@ -46,8 +46,8 @@ void BinaryShift(void *num, short int TypeSize, bool bitState, unsigned short in
 		}
 	}
 	PrintNum(num, TypeSize, startBit, stopBit);// конечый результат
-	std::cout << "\n Число после изменения: " << *&num;
 }
+
 
 
 void about() {

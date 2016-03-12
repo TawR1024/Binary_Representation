@@ -1,12 +1,10 @@
 #include "Header.h"
 
-	
 int main()
 {
 	setlocale(0, "");
-
-
-	char menu=' ', exit_=' ';
+	char menu = ' ';
+	char exit_ = ' ';
 	bool bitState;
 	unsigned short int startBit;
 	unsigned short int stopBit;
@@ -34,13 +32,21 @@ int main()
 			std::cout << "Выбран тип int\n";
 			std::cout << "Введите число:\t";
 			int i_number;
-			std::cin >> i_number;
+			std::cin >> i_number; 
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Выберите состояние битов 0 или 1:\t";
 			std::cin >> bitState;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер начального бита. Нумерация начинается с 0: ";
 			std::cin >> startBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:  ";
 			std::cin >> stopBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&i_number, INT, bitState, startBit, stopBit);
 			break;
 		case '2':
@@ -49,12 +55,20 @@ int main()
 			char ch_smb;
 			std::cout << "Введите символ:\t";
 			std::cin >> ch_smb;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Выберите состояние битов 0 или 1:\t";
 			std::cin >> bitState;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
 			std::cin >> startBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
 			std::cin >> stopBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&ch_smb, CHR, bitState, startBit, stopBit);
 			break;
 		case '3':
@@ -63,12 +77,20 @@ int main()
 			std::cout << "Введите число:\t";
 			short int shi_number;
 			std::cin >> shi_number;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Выберите состояние битов 0 или 1:\t";
 			std::cin >> bitState;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
 			std::cin >> startBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
 			std::cin >> stopBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&shi_number, SHRT, bitState, startBit, stopBit);;
 			break;
 		case '4':
@@ -77,12 +99,20 @@ int main()
 			std::cout << "Введите число:\t";
 			long int l_number;
 			std::cin >> l_number;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Выберите состояние битов 0 или 1:\t";
 			std::cin >> bitState;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
 			std::cin >> startBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
 			std::cin >> stopBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&l_number, L_INT, bitState, startBit, stopBit);
 			break;
 		case '5':
@@ -91,12 +121,20 @@ int main()
 			std::cout << "Введите число:\t";
 			double d_number;
 			std::cin >> d_number;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Выберите состояние битов 0 или 1:\t";
 			std::cin >> bitState;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
 			std::cin >> startBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
 			std::cin >> stopBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&d_number, DBL, bitState, startBit, stopBit);
 			break;
 		case '6':
@@ -105,12 +143,20 @@ int main()
 			std::cout << "Введите число:\t";
 			float f_number;
 			std::cin >> f_number;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Выберите состояние битов 0 или 1:\t";
 			std::cin >> bitState;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
 			std::cin >> startBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
 			std::cin >> stopBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&f_number, FLT, bitState, startBit, stopBit);
 			break;
 		case '7':
@@ -119,12 +165,20 @@ int main()
 			std::cout << "Введите число:\t";
 			long long int l_l_number;
 			std::cin >> l_l_number;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Выберите состояние битов 0 или 1:\t";
 			std::cin >> bitState;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер начального бита. Нумерация начинается с 0:\t";
 			std::cin >> startBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Укажите номер конечного бита. Нумерация начинается с 0:\t";
 			std::cin >> stopBit;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&l_l_number, LL_INT, bitState, startBit, stopBit);
 			break;
 		case '#':
@@ -141,7 +195,6 @@ int main()
 		std::cout << "\n";
 		system("pause");
 	} while (exit_ != 1);
-
 	exit(0);
 	return 0;
 }
