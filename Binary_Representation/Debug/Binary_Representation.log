@@ -1,21 +1,34 @@
-﻿Сборка начата 12.03.2016 23:41:39.
+﻿Сборка начата 13.03.2016 21:13:35.
      1>Проект "D:\WorkSpace\2_course\2_term\EMC_organization\Binary_Representation\Binary_Representation\Binary_Representation.vcxproj" в узле 2 (целевые объекты Build).
      1>InitializeBuildStatus:
-         Создание "Debug\Binary_R.2AADD6B5.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
+         Обращение к "Debug\Binary_R.2AADD6B5.tlog\unsuccessfulbuild".
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"d:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp functions.cpp
          functions.cpp
          Source.cpp
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(34): error C2783: void inputParametrs(void): не удается составить аргумент шаблон для "T"
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.cpp(9): note:  см. объявление "inputParametrs"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(58): error C2783: void inputParametrs(void): не удается составить аргумент шаблон для "T"
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.cpp(9): note:  см. объявление "inputParametrs"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(79): error C2143: синтаксическая ошибка: отсутствие ";" перед "case"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(83): error C2783: void inputParametrs(void): не удается составить аргумент шаблон для "T"
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.cpp(9): note:  см. объявление "inputParametrs"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(103): error C2143: синтаксическая ошибка: отсутствие ";" перед "case"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(106): error C2783: void inputParametrs(void): не удается составить аргумент шаблон для "T"
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.cpp(9): note:  см. объявление "inputParametrs"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(127): error C2143: синтаксическая ошибка: отсутствие ";" перед "case"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(130): error C2783: void inputParametrs(void): не удается составить аргумент шаблон для "T"
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.cpp(9): note:  см. объявление "inputParametrs"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(151): error C2143: синтаксическая ошибка: отсутствие ";" перед "case"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(155): error C2783: void inputParametrs(void): не удается составить аргумент шаблон для "T"
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.cpp(9): note:  см. объявление "inputParametrs"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(175): error C2143: синтаксическая ошибка: отсутствие ";" перед "case"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(179): error C2783: void inputParametrs(void): не удается составить аргумент шаблон для "T"
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.cpp(9): note:  см. объявление "inputParametrs"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(199): error C2143: синтаксическая ошибка: отсутствие ";" перед "case"
          Создание кода...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\WorkSpace\2_course\2_term\EMC_organization\Binary_Representation\Debug\Binary_Representation.exe" /INCREMENTAL /NOLOGO /LIBPATH:"d:\Program Files (x86)\Visual Leak Detector\lib\Win32" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\WorkSpace\2_course\2_term\EMC_organization\Binary_Representation\Debug\Binary_Representation.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\WorkSpace\2_course\2_term\EMC_organization\Binary_Representation\Debug\Binary_Representation.lib" /MACHINE:X86 Debug\functions.obj
-         Debug\Source.obj
-         Binary_Representation.vcxproj -> D:\WorkSpace\2_course\2_term\EMC_organization\Binary_Representation\Debug\Binary_Representation.exe
-       FinalizeBuildStatus:
-         Файл "Debug\Binary_R.2AADD6B5.tlog\unsuccessfulbuild" удаляется.
-         Обращение к "Debug\Binary_R.2AADD6B5.tlog\Binary_Representation.lastbuildstate".
-     1>Сборка проекта "D:\WorkSpace\2_course\2_term\EMC_organization\Binary_Representation\Binary_Representation\Binary_Representation.vcxproj" завершена (целевые объекты Build).
+     1>Сборка проекта "D:\WorkSpace\2_course\2_term\EMC_organization\Binary_Representation\Binary_Representation\Binary_Representation.vcxproj" завершена (целевые объекты Build) с ошибкой.
 
-Сборка успешно завершена.
+Ошибка сборки.
 
-Затраченное время: 00:00:02.02
+Затраченное время: 00:00:01.29

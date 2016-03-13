@@ -1,18 +1,7 @@
 #pragma once
-#include <iostream>
-#include <cstdlib>
-#include <Windows.h>
-#include <ctype.h>
+
 
 #define CIN_ALPHA_ERR  "Введена буква или группа букв. Повторите ввод."
-
-#define INT sizeof(int)
-#define L_INT sizeof(long int)
-#define LL_INT sizeof(long long int)
-#define CHR sizeof(char)
-#define DBL sizeof(double)
-#define FLT sizeof(float)
-#define SHRT sizeof(short int)
 
 enum ConsoleColor {
 	BLACK = 0,
@@ -21,7 +10,7 @@ enum ConsoleColor {
 	CYAN = 3,
 	RED = 4,
 	MAGENTA = 5,
-	BROUN = 6,
+	BROWN = 6,
 	LIGHTGRAY = 7,
 	DARKGRAY = 8,
 	LIGHTBLUE = 9,
@@ -37,3 +26,4 @@ enum ConsoleColor {
 void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsigned short int stopBit);
 void BinaryShift(void *num, short int TypeSize, bool bitState, unsigned short int startBit, unsigned short int stopBit);
 void about();
+

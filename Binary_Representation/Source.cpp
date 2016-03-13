@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "functions.cpp"
 
 
 int main()
@@ -31,9 +31,11 @@ int main()
 		case '1':
 			system("cls");
 			std::cout << "Выбран тип int\n";
-			std::cout << "Введите число:\t";
+			inputParametrs(); // ERROR
+			break;
+			/*std::cout << "Введите число:\t";
 			int i_number;
-			std::cin >> i_number; 
+			std::cin >> i_number;
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			std::cout << "Выберите состояние битов 0 или 1:\t";
@@ -48,12 +50,14 @@ int main()
 			std::cin >> stopBit;
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
-			BinaryShift(&i_number, INT, bitState, startBit, stopBit);
-			break;
+			BinaryShift(&i_number, INT, bitState, startBit, stopBit);*/
+			
 		case '2':
 			system("cls");
 			std::cout << "Выбран тип char\n";
-			char ch_smb;
+			inputParametrs();
+			break
+			/*char ch_smb;
 			std::cout << "Введите символ:\t";
 			std::cin >> ch_smb;
 			std::cin.clear();
@@ -71,12 +75,14 @@ int main()
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&ch_smb, CHR, bitState, startBit, stopBit);
-			break;
+			break;*/
 		case '3':
 			system("cls");
 			std::cout << "Выбран тип short int\n";
 			std::cout << "Введите число:\t";
-			short int shi_number;
+			inputParametrs();
+			break
+			/*short int shi_number;
 			std::cin >> shi_number;
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
@@ -93,11 +99,13 @@ int main()
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&shi_number, SHRT, bitState, startBit, stopBit);;
-			break;
+			break;*/
 		case '4':
 			system("cls");
 			std::cout << "Выбран тип long int\n";
-			std::cout << "Введите число:\t";
+			inputParametrs();
+			break
+			/*std::cout << "Введите число:\t";
 			long int l_number;
 			std::cin >> l_number;
 			std::cin.clear();
@@ -115,11 +123,13 @@ int main()
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&l_number, L_INT, bitState, startBit, stopBit);
-			break;
+			break;*/
 		case '5':
 			system("cls");
 			std::cout << "Выбран тип double\n";
-			std::cout << "Введите число:\t";
+			inputParametrs();
+			break
+			/*std::cout << "Введите число:\t";
 			double d_number;
 			std::cin >> d_number;
 			std::cin.clear();
@@ -137,12 +147,14 @@ int main()
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&d_number, DBL, bitState, startBit, stopBit);
-			break;
+			break;*/
 		case '6':
 			system("cls");
 			std::cout << "Выбран тип float\n";
 			std::cout << "Введите число:\t";
-			float f_number;
+			inputParametrs();
+			break
+			/*float f_number;
 			std::cin >> f_number;
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
@@ -159,12 +171,14 @@ int main()
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&f_number, FLT, bitState, startBit, stopBit);
-			break;
+			break;*/
 		case '7':
 			system("cls");
 			std::cout << "Выбран тип long long int\n";
 			std::cout << "Введите число:\t";
-			long long int l_l_number;
+			inputParametrs();
+			break
+			/*long long int l_l_number;
 			std::cin >> l_l_number;
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
@@ -181,7 +195,7 @@ int main()
 			std::cin.clear();
 			std::cin.ignore(std::cin.rdbuf()->in_avail());
 			BinaryShift(&l_l_number, LL_INT, bitState, startBit, stopBit);
-			break;
+			break;*/
 		case '#':
 			about();
 			break;
