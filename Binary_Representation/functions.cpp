@@ -1,28 +1,11 @@
-#pragma once
+
 #include "Header.h"
 #include <iostream>
 #include <cstdlib>
 #include <Windows.h>
 #include <ctype.h>
 
-template <typename T>
-void inputParametrs() {
-	T arg;
-	std::cin >> arg;
-	std::cout << "Выберите состояние битов 0 или 1:\t";
-	std::cin >> bitState;
-	std::cin.clear();
-	std::cin.ignore(std::cin.rdbuf()->in_avail());
-	std::cout << "Укажите номер начального бита. Нумерация начинается с 0: ";
-	std::cin >> startBit;
-	std::cin.clear();
-	std::cin.ignore(std::cin.rdbuf()->in_avail());
-	std::cout << "Укажите номер конечного бита. Нумерация начинается с 0: ";
-	std::cin >> stopBit;
-	std::cin.clear();
-	std::cin.ignore(std::cin.rdbuf()->in_avail());
-	BinaryShift(&arg, sizeof(T), bitState, startBit, stopBit);
-}
+
 
 void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsigned short int stopBit)
 {
@@ -47,8 +30,14 @@ void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsign
 }
 
 void BinaryShift(void *num, short int TypeSize, bool bitState, unsigned short int startBit, unsigned short int stopBit) {
-	if (startBit > TypeSize * 8 || stopBit > TypeSize * 8 || (bitState != 0 && bitState != 1) || startBit> stopBit) {
-		std::cout << "\n" << "Ошибка ввода!"<< "\n";
+	try {
+		if(startBit > TypeSize * 8 || stopBit > TypeSize * 8 || (bitState != 0 && bitState != 1) || startBit> stopBit) {
+			throw INPUT_DATA_ERR;
+		}
+	}
+	catch(char *str){
+		std::cout << str<<"\n";
+		system("PAUSE");
 		std::cin.clear();
 		return;
 	}
@@ -70,8 +59,6 @@ void BinaryShift(void *num, short int TypeSize, bool bitState, unsigned short in
 	}
 	PrintNum(num, TypeSize, startBit, stopBit);// конечый результат
 }
-
-
 
 void about() {
 	system("CLS");

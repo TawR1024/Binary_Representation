@@ -1,15 +1,16 @@
-#include "functions.cpp"
+#include "Header.h"
+#include <iostream>
 
 
 int main()
 {
 	setlocale(0, "");
 	char menu = ' ';
-	char exit_ = ' ';
-	bool bitState;
+	//char exit_ = ' ';
+	/*bool bitState;
 	unsigned short int startBit;
-	unsigned short int stopBit;
-	do {
+	unsigned short int stopBit;*/
+	while (true) {
 		std::cin.clear();
 		system("cls");
 		std::cout << "Выбирите тип, для подтверждения выбора нажмите Enter:\n* 1 - int\n* 2 - char\n* 3 - short int\n* 4 - long int\n* 5 - double\n* 6 - float\n* 7 - long long int\n* 0 - Завершить работы и закрыть программу\n* # - вывести раздел \"О программе\"\n";
@@ -31,7 +32,7 @@ int main()
 		case '1':
 			system("cls");
 			std::cout << "Выбран тип int\n";
-			inputParametrs(); // ERROR
+			inputParametrs<int>(); // ERROR
 			break;
 			/*std::cout << "Введите число:\t";
 			int i_number;
@@ -55,8 +56,8 @@ int main()
 		case '2':
 			system("cls");
 			std::cout << "Выбран тип char\n";
-			inputParametrs();
-			break
+			inputParametrs<char>();
+			break;
 			/*char ch_smb;
 			std::cout << "Введите символ:\t";
 			std::cin >> ch_smb;
@@ -80,8 +81,8 @@ int main()
 			system("cls");
 			std::cout << "Выбран тип short int\n";
 			std::cout << "Введите число:\t";
-			inputParametrs();
-			break
+			inputParametrs<short int>();
+			break;
 			/*short int shi_number;
 			std::cin >> shi_number;
 			std::cin.clear();
@@ -103,8 +104,8 @@ int main()
 		case '4':
 			system("cls");
 			std::cout << "Выбран тип long int\n";
-			inputParametrs();
-			break
+			inputParametrs<long int>();
+			break;
 			/*std::cout << "Введите число:\t";
 			long int l_number;
 			std::cin >> l_number;
@@ -127,8 +128,8 @@ int main()
 		case '5':
 			system("cls");
 			std::cout << "Выбран тип double\n";
-			inputParametrs();
-			break
+			inputParametrs<double>();
+			break;
 			/*std::cout << "Введите число:\t";
 			double d_number;
 			std::cin >> d_number;
@@ -152,8 +153,8 @@ int main()
 			system("cls");
 			std::cout << "Выбран тип float\n";
 			std::cout << "Введите число:\t";
-			inputParametrs();
-			break
+			inputParametrs<float>();
+			break;
 			/*float f_number;
 			std::cin >> f_number;
 			std::cin.clear();
@@ -176,8 +177,8 @@ int main()
 			system("cls");
 			std::cout << "Выбран тип long long int\n";
 			std::cout << "Введите число:\t";
-			inputParametrs();
-			break
+			inputParametrs<long long int>();
+			break;
 			/*long long int l_l_number;
 			std::cin >> l_l_number;
 			std::cin.clear();
@@ -199,17 +200,19 @@ int main()
 		case '#':
 			about();
 			break;
-		case '0':
-			exit_ = 1;
+		case '0':/*
+			exit_ = 1;*/
+			exit(1);
 			break;
 		default:
 			std::cin.clear();
-			exit_ = 0;
+			/*exit_ = 0;*/
+			//exit(2);
 			break;
 		}
 		std::cout << "\n";
 		system("pause");
-	} while (exit_ != 1);
-	exit(0);
+	};/* while (exit_ != 1);*/
+	//exit(0);
 	return 0;
 }

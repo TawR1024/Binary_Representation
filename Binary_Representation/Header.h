@@ -1,7 +1,8 @@
-#pragma once
+
 
 
 #define CIN_ALPHA_ERR  "Введена буква или группа букв. Повторите ввод."
+#define INPUT_DATA_ERR "Указаны неверные параметры. Повторите ввод."
 
 enum ConsoleColor {
 	BLACK = 0,
@@ -27,3 +28,24 @@ void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsign
 void BinaryShift(void *num, short int TypeSize, bool bitState, unsigned short int startBit, unsigned short int stopBit);
 void about();
 
+template <typename T>
+void inputParametrs() {
+	T arg;
+	bool bitState;
+	unsigned short int startBit;
+	unsigned short int stopBit;
+	std::cin>>arg;
+	std::cout << "Выберите состояние битов 0 или 1:\t";
+	std::cin >> bitState;
+	std::cin.clear();
+	std::cin.ignore(std::cin.rdbuf()->in_avail());
+	std::cout << "Укажите номер начального бита. Нумерация начинается с 0: ";
+	std::cin >> startBit;
+	std::cin.clear();
+	std::cin.ignore(std::cin.rdbuf()->in_avail());
+	std::cout << "Укажите номер конечного бита. Нумерация начинается с 0: ";
+	std::cin >> stopBit;
+	std::cin.clear();
+	std::cin.ignore(std::cin.rdbuf()->in_avail());
+	BinaryShift(&arg, sizeof(T), bitState, startBit, stopBit);
+}
