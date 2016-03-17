@@ -1,7 +1,5 @@
-
 #pragma once
 #include <iostream>
-
 
 enum ConsoleColor {
 	BLACK = 0,
@@ -22,7 +20,7 @@ enum ConsoleColor {
 	WHITE = 15
 };
 
-void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsigned short int stopBit);
+void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsigned short int stopBit, ConsoleColor color);
 void BinaryShift(void *num, short int TypeSize, bool bitState, unsigned short int startBit, unsigned short int stopBit);
 void about();
 
@@ -52,18 +50,10 @@ void inputParametrs() {
 
 template <typename argType> 
 void BinaryShift(argType *num, short int TypeSize, bool bitState, unsigned short int startBit, unsigned short int stopBit) {
-	try {
 		if (startBit > TypeSize * 8 || stopBit > (TypeSize * 8)-1 || (bitState != 0 && bitState != 1) || startBit> stopBit) {
 			throw "Указаны неверные параметры. Повторите ввод.";
 		}
-	}
-	catch (char *str) {
-		std::cout << str << "\n";
-		system("PAUSE");
-		std::cin.clear();
-		return;
-	}
-	PrintNum(num, TypeSize, startBit, stopBit);
+	PrintNum(num, TypeSize, startBit, stopBit, RED);
 	std::cout << "\n";
 	argType p_tmp = 0;
 	if (bitState == true) {
@@ -77,5 +67,8 @@ void BinaryShift(argType *num, short int TypeSize, bool bitState, unsigned short
 			((char*)(num))[i / 8] &= ((((char*)(&p_tmp))[i / 8]) | (0 << i % 8));
 		}
 	}
-	PrintNum(num, TypeSize, startBit, stopBit);
+	PrintNum(num, TypeSize, startBit, stopBit, GREEN);
+	std::cout << '\n';
+	system("set /p pset=\"Для продолжения и выхода в главное меню нажмите любую клавишу\"");
+
 }

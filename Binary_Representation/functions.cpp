@@ -3,13 +3,13 @@
 #include <iostream>
 #include <Windows.h>
 
-void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsigned short int stopBit){
+void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsigned short int stopBit, ConsoleColor color){
 	char *tmp = (char*)num;
 	for (int counter = (TypeSize * 8) - 1; counter >= 0; counter--)
 	{
 		if (counter >= startBit && counter <= stopBit) {
 			HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-			SetConsoleTextAttribute(handle, GREEN);
+			SetConsoleTextAttribute(handle, color);
 		}
 		else
 		{
@@ -26,5 +26,5 @@ void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsign
 void about() {
 	system("CLS");
 	std::cout << "Задание: Установить в заданное пользователем состояние определённое количество рядом стоящих бит, номер младшего из которых, как и всё остальное, вводится с клавиа-туры.\n Программа позволяет вводить 7 типов данных, защита от неверного ввода не предусматривалась, дробные числа вводятся с использованием точки!\n\nCreated by Ilya Kulakov 4308\nGNU GPL\n";
-	system("PAUSE");
+	system("set /p pset=\"Для продолжения и выхода в главное меню нажмите любую клавишу\""); // аналог reed -p "foo bar" -n bash
 }
