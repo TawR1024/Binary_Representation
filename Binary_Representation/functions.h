@@ -70,5 +70,4 @@ void BinaryShift(argType *num, short int TypeSize, bool bitState, unsigned short
 	PrintNum(num, TypeSize, startBit, stopBit, GREEN);
 	std::cout << '\n';
 	system("set /p pset=\"Для продолжения и выхода в главное меню нажмите любую клавишу\"");
-
 }
