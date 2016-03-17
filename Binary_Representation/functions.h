@@ -1,8 +1,7 @@
 
+#pragma once
+#include <iostream>
 
-
-#define CIN_ALPHA_ERR  "Введена буква или группа букв. Повторите ввод."
-#define INPUT_DATA_ERR "Указаны неверные параметры. Повторите ввод."
 
 enum ConsoleColor {
 	BLACK = 0,
@@ -23,7 +22,6 @@ enum ConsoleColor {
 	WHITE = 15
 };
 
-
 void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsigned short int stopBit);
 void BinaryShift(void *num, short int TypeSize, bool bitState, unsigned short int startBit, unsigned short int stopBit);
 void about();
@@ -35,6 +33,8 @@ void inputParametrs() {
 	unsigned short int startBit;
 	unsigned short int stopBit;
 	std::cin>>arg;
+	std::cin.clear();
+	std::cin.ignore(std::cin.rdbuf()->in_avail());
 	std::cout << "Выберите состояние битов 0 или 1:\t";
 	std::cin >> bitState;
 	std::cin.clear();
@@ -48,4 +48,34 @@ void inputParametrs() {
 	std::cin.clear();
 	std::cin.ignore(std::cin.rdbuf()->in_avail());
 	BinaryShift(&arg, sizeof(T), bitState, startBit, stopBit);
+}
+
+template <typename argType> 
+void BinaryShift(argType *num, short int TypeSize, bool bitState, unsigned short int startBit, unsigned short int stopBit) {
+	try {
+		if (startBit > TypeSize * 8 || stopBit > (TypeSize * 8)-1 || (bitState != 0 && bitState != 1) || startBit> stopBit) {
+			throw "Указаны неверные параметры. Повторите ввод.";
+		}
+	}
+	catch (char *str) {
+		std::cout << str << "\n";
+		system("PAUSE");
+		std::cin.clear();
+		return;
+	}
+	PrintNum(num, TypeSize, startBit, stopBit);
+	std::cout << "\n";
+	argType p_tmp = 0;
+	if (bitState == true) {
+		for (int i = startBit; i <= stopBit; i++) {
+			((char*)(num))[i / 8] |= ((char*)(&p_tmp))[i / 8] | (1 << i % 8);
+		}
+	}
+	else
+	{
+		for (int i = startBit; i < stopBit; i++) {
+			((char*)(num))[i / 8] &= ((((char*)(&p_tmp))[i / 8]) | (0 << i % 8));
+		}
+	}
+	PrintNum(num, TypeSize, startBit, stopBit);
 }
