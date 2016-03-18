@@ -25,12 +25,52 @@ void BinaryShift(void *num, short int TypeSize, bool bitState, unsigned short in
 void about();
 
 template <typename T>
+T safeInput() {
+	setlocale(0, "");
+	char str[255];
+	char num[64];
+	bool separator = false;
+	int j = 0;
+	std::cin >> str;
+	for (int i = 0; i < strlen(str); i++) {
+		if ((str[i] == 'E' || str[i] == 'e') && (str[i + 1] == '-' || str[i] == '+') && separator == true) {
+			num[j] = str[i];
+			++i; ++j;
+			num[j] = str[i];
+			j++;
+		}
+		if (separator == false && (str[i] == 44 || str[i] == 46)) {
+			separator = true;
+			num[j] = ',';
+			j++;
+		}
+		if (str[i] >= 48 && str[i] < 57) {
+			num[j] = str[i];
+			j++;
+		}
+	}
+	return atof(num);
+}
+
+template <typename T>
 void inputParametrs() {
-	T arg;
+	T arg = 0;
 	bool bitState;
 	unsigned short int startBit;
 	unsigned short int stopBit;
-	std::cin>>arg;
+	if (typeid(arg) == typeid(float)) {
+		 arg = safeInput<float>();
+	}
+	else {
+		if (typeid(arg) == typeid(double)) {
+			 arg = safeInput<float>();
+		}
+		else
+		{
+			std::cin >> arg;
+		}
+	}
+	std::cout << "Распознанное число: " << arg << '\n';
 	std::cin.clear();
 	std::cin.ignore(std::cin.rdbuf()->in_avail());
 	std::cout << "Выберите состояние битов 0 или 1:\t";
@@ -64,10 +104,12 @@ void BinaryShift(argType *num, short int TypeSize, bool bitState, unsigned short
 	else
 	{
 		for (int i = startBit; i < stopBit; i++) {
-			((char*)(num))[i / 8] &= ((((char*)(&p_tmp))[i / 8]) | (0 << i % 8));
+			((char*)(num))[i / 8] &= ~((((char*)(&p_tmp))[i / 8]) | (0 << i % 8));
 		}
 	}
 	PrintNum(num, TypeSize, startBit, stopBit, GREEN);
+	std::cout << "\nИзменённое число: ";
+	std::cout << *((argType*)num);
 	std::cout << '\n';
-	system("set /p pset=\"Для продолжения и выхода в главное меню нажмите любую клавишу\"");
+	system("set /p pset=\"Для продолжения и выхода в главное меню нажмите Enter\"");
 }

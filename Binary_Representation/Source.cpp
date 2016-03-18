@@ -75,7 +75,7 @@ int main()
 		}
 		catch (char *str) {
 			std::cout << str;
-			system("set /p pset=\"\"");
+			system("set /p pset=\"Для продолжение нажмите Enter\"");
 			}
 		};
 	return 0;

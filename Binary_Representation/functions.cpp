@@ -14,7 +14,7 @@ void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsign
 		else
 		{
 			HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
-			SetConsoleTextAttribute(handle, LIGHTGRAY);
+			SetConsoleTextAttribute(handle, BROWN);
 		}
 		std::cout << ((tmp[counter / 8] >> counter % 8) & 1);
 		if (counter % 8 == 0) std::cout << " ";
@@ -26,5 +26,5 @@ void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsign
 void about() {
 	system("CLS");
 	std::cout << "Задание: Установить в заданное пользователем состояние определённое количество рядом стоящих бит, номер младшего из которых, как и всё остальное, вводится с клавиа-туры.\n Программа позволяет вводить 7 типов данных, защита от неверного ввода не предусматривалась, дробные числа вводятся с использованием точки!\n\nCreated by Ilya Kulakov 4308\nGNU GPL\n";
-	system("set /p pset=\"Для продолжения и выхода в главное меню нажмите любую клавишу\""); // аналог reed -p "foo bar" -n bash
+	system("set /p pset=\"Для продолжения и выхода в главное меню нажмите Enter\""); // аналог reed -p "foo bar" -n bash
 }
