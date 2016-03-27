@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#include <iomanip>
 enum ConsoleColor {
 	BLACK = 0,
 	BLUE= 1,
@@ -23,6 +23,7 @@ enum ConsoleColor {
 void PrintNum(void *num, short int TypeSize, unsigned short int startBit, unsigned short int stopBit, ConsoleColor color);
 void BinaryShift(void *num, short int TypeSize, bool bitState, unsigned short int startBit, unsigned short int stopBit);
 void about();
+void SplashScreen();
 
 template <typename T>
 T safeInput() {
@@ -39,7 +40,7 @@ T safeInput() {
 			num[j] = str[i];
 			j++;
 		}
-		if (separator == false && (str[i] == 44 || str[i] == 46)) {
+		if (separator == false && (str[i] == '.' || str[i] == ',')) {
 			separator = true;
 			num[j] = ',';
 			j++;
@@ -51,6 +52,13 @@ T safeInput() {
 	}
 	return atof(num);
 }
+/*Если стало грустно то 
+double atof (const char *nptr)
+ {
+   return strtod (nptr, (char **) NULL);
+   }
+   */
+
 
 template <typename T>
 void inputParametrs() {
@@ -58,6 +66,7 @@ void inputParametrs() {
 	bool bitState;
 	unsigned short int startBit;
 	unsigned short int stopBit;
+
 	if (typeid(arg) == typeid(float)) {
 		 arg = safeInput<float>();
 	}
@@ -68,20 +77,29 @@ void inputParametrs() {
 		else
 		{
 			std::cin >> arg;
+			std::cin.clear();
+			std::cin.ignore(std::cin.rdbuf()->in_avail());
 		}
 	}
-	std::cout << "Распознанное число: " << arg << '\n';
+	if (typeid(arg) == typeid(double)|| typeid(arg)==typeid(float))
+	{
+		std::cout.precision(15);
+		std::cout << "Распознанное число: " << arg << '\n';
+	}
+	else {
+		std::cout << "Распознанное число: " << arg << '\n';
+	}
 	std::cin.clear();
 	std::cin.ignore(std::cin.rdbuf()->in_avail());
 	std::cout << "Выберите состояние битов 0 или 1:\t";
 	std::cin >> bitState;
 	std::cin.clear();
 	std::cin.ignore(std::cin.rdbuf()->in_avail());
-	std::cout << "Укажите номер начального бита. Нумерация начинается с 0: ";
+	std::cout << "Укажите начальный бит в диапазоне от 0 до " << sizeof(T) * 8 - 1 <<": ";
 	std::cin >> startBit;
 	std::cin.clear();
 	std::cin.ignore(std::cin.rdbuf()->in_avail());
-	std::cout << "Укажите номер конечного бита. Нумерация начинается с 0: ";
+	std::cout << "Укажите конечный бит в диапазоне от начального до " << sizeof(T) * 8 - 1 <<": ";
 	std::cin >> stopBit;
 	std::cin.clear();
 	std::cin.ignore(std::cin.rdbuf()->in_avail());
@@ -90,9 +108,9 @@ void inputParametrs() {
 
 template <typename argType> 
 void BinaryShift(argType *num, short int TypeSize, bool bitState, unsigned short int startBit, unsigned short int stopBit) {
-		if (startBit > TypeSize * 8 || stopBit > (TypeSize * 8)-1 || (bitState != 0 && bitState != 1) || startBit> stopBit) {
-			throw "Указаны неверные параметры. Повторите ввод.";
-		}
+	if (startBit > TypeSize * 8 || stopBit > (TypeSize * 8) - 1 || (bitState != 0 && bitState != 1) || startBit > stopBit) {
+		throw "Указаны неверные параметры. Повторите ввод.";
+	}
 	PrintNum(num, TypeSize, startBit, stopBit, RED);
 	std::cout << "\n";
 	argType p_tmp = 0;
@@ -103,13 +121,13 @@ void BinaryShift(argType *num, short int TypeSize, bool bitState, unsigned short
 	}
 	else
 	{
-		for (int i = startBit; i < stopBit; i++) {
-			((char*)(num))[i / 8] &= ~((((char*)(&p_tmp))[i / 8]) | (0 << i % 8));
+		for (int i = startBit; i <= stopBit; i++) {
+			((char*)(num))[i / 8] &= ~((((char*)(&p_tmp))[i / 8]) | (1 << i % 8));
 		}
 	}
 	PrintNum(num, TypeSize, startBit, stopBit, GREEN);
 	std::cout << "\nИзменённое число: ";
 	std::cout << *((argType*)num);
-	std::cout << '\n';
-	system("set /p pset=\"Для продолжения и выхода в главное меню нажмите Enter\"");
+	std::cout << "\nДля продолжения нажмите любую клавишу...";
+	system("pause>>void");
 }

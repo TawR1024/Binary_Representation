@@ -5,6 +5,7 @@
 int main()
 {
 	setlocale(0, "");
+	SplashScreen();
 	char menu = ' ';
 	while (true) {
 		try {
@@ -75,7 +76,8 @@ int main()
 		}
 		catch (char *str) {
 			std::cout << str;
-			system("set /p pset=\"Для продолжение нажмите Enter\"");
+			std::cout << "\nДля продолжения нажмите любую клавишу...";
+			system("pause>>void");
 			}
 		};
 	return 0;

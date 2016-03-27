@@ -1,10 +1,32 @@
-﻿Сборка начата 18.03.2016 23:32:08.
+﻿Сборка начата 19.03.2016 1:07:20.
      1>Проект "D:\WorkSpace\2_course\2_term\EMC_organization\Binary_Representation\Binary_Representation\Binary_Representation.vcxproj" в узле 2 (целевые объекты Build).
      1>InitializeBuildStatus:
          Создание "Debug\Binary_R.2AADD6B5.tlog\unsuccessfulbuild", так как было задано "AlwaysCreate".
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"d:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt functions.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"d:\Program Files (x86)\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp functions.cpp
          functions.cpp
+         Source.cpp
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.h(70): warning C4244: =: преобразование "float" в "char", возможна потеря данных
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(37): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void inputParametrs<char>(void)"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.h(74): warning C4244: =: преобразование "float" в "char", возможна потеря данных
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.h(70): warning C4244: =: преобразование "float" в "short", возможна потеря данных
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(43): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void inputParametrs<short>(void)"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.h(74): warning C4244: =: преобразование "float" в "short", возможна потеря данных
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.h(70): warning C4244: =: преобразование "float" в "long", возможна потеря данных
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(49): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void inputParametrs<long>(void)"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.h(74): warning C4244: =: преобразование "float" в "long", возможна потеря данных
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.h(70): warning C4244: =: преобразование "float" в "__int64", возможна потеря данных
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(67): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void inputParametrs<__int64>(void)"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.h(74): warning C4244: =: преобразование "float" в "__int64", возможна потеря данных
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.h(35): warning C4018: <: несоответствие типов со знаком и без знака
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.h(70): note: см. ссылку на создание экземпляров функции шаблон при компиляции "T safeInput<float>(void)"
+                 with
+                 [
+                     T=float
+                 ]
+         d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\source.cpp(31): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void inputParametrs<long double>(void)"
+     1>d:\workspace\2_course\2_term\emc_organization\binary_representation\binary_representation\functions.h(52): warning C4244: return: преобразование "double" в "float", возможна потеря данных
+         Создание кода...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\WorkSpace\2_course\2_term\EMC_organization\Binary_Representation\Debug\Binary_Representation.exe" /INCREMENTAL /NOLOGO /LIBPATH:"d:\Program Files (x86)\Visual Leak Detector\lib\Win32" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\WorkSpace\2_course\2_term\EMC_organization\Binary_Representation\Debug\Binary_Representation.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\WorkSpace\2_course\2_term\EMC_organization\Binary_Representation\Debug\Binary_Representation.lib" /MACHINE:X86 Debug\functions.obj
          Debug\Source.obj
@@ -16,4 +38,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:00.99
+Затраченное время: 00:00:01.37
